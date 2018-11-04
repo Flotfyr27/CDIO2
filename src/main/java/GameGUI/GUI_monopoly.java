@@ -7,20 +7,21 @@ import gui_main.GUI;
 import java.awt.*;
 
 public class GUI_monopoly {
-    private final int ENGLISH = 0, DANSK = 1, RUSSIAN = 2;
     private final int FIELDSIZE = 12, LANGUAGE_LENGTH = 58;
-    private int selectedLanguage;
-    String[] Lang_ENG = new String[LANGUAGE_LENGTH];
+    private String selectedLanguage;
+    String[] ENG = new String[LANGUAGE_LENGTH];
+    String[] RUS = new String[LANGUAGE_LENGTH];
+    String[] DAN = new String[LANGUAGE_LENGTH];
 
-    public GUI_monopoly(int numberOfPlayers, int language){
+    public GUI_monopoly(int numberOfPlayers, String language){
         selectedLanguage = language;
         initGUI(numberOfPlayers, selectedLanguage);
     }
 
-    public void initGUI(int numberOfPlayers, int language){
+    public void initGUI(int numberOfPlayers, String language){
         GUI_Field[] fields = new GUI_Field[FIELDSIZE];
 
-        if(language == ENGLISH) {
+        if(language.equals("English") || language.equals("english")) {
 
             //Start
             GUI_Street Start = new GUI_Street();
@@ -52,12 +53,17 @@ public class GUI_monopoly {
             //Huts in the mountain
             GUI_Street mountainHut = new GUI_Street("Huts in the mountain", "+60", "This is nice I wonder who owns it.", "+60", Color.lightGray, null);
             fields[8] = mountainHut;
+            //Werewall
             GUI_Street wereWall = new GUI_Street("The Werewall (Werewolf-wall)", "-80", "It's my wonderwall. +1 Free roll", "-80", Color.lightGray, null);
             fields[9] = wereWall;
+            //The pit
             GUI_Street thePit = new GUI_Street("The pit", "-50", "Watch your step.", "-50", Color.lightGray, null);
             fields[10] = thePit;
+            //Goldmine
             GUI_Street GoldMine = new GUI_Street("Goldmine", "+650", "You struck gold, run before any dwarves find you!", "+650", Color.lightGray, null);
             fields[11] = GoldMine;
+
+        }else if(language.equals("Russian") || language.equals("russian")){
 
         }
         GUI gui = new GUI(fields, Color.WHITE);

@@ -1,4 +1,58 @@
-[Language: English]
-Hello!
-What can i do you for?
-I've been expecting you.
+**Start
+START
+You start here...
+**Tower
+Tower
++250
+You find a treasure of gold and silver!
++250
+**Crater
+Crater
+-100
+You fall into a crater and must pay for repairs.
+-100
+**Palace
+Palace gates
++100
+You visit the Palace gates.
++100
+**Cold Desert
+Cold Desert
+-20
+You enter a surprisingly cold desert. You feed the penguins.
+-20
+**Walled city
+Walled city
++180
+You feel safe behind the city walls
++180
+**Monastery
+Monastery
++0
+An inner peace finds your soul.
++0
+**Black cave
+Black cave
+-70
+It's really dark, maybe you should light a torch?
+-70
+**Huts in the mountain
+Huts in the mountain
++60
+This is nice I wonder who owns it.
++60
+**Werewall
+The Werewall (Werewolf-wall)
+-80
+It's my wonderwall. +1 Free roll
+-80
+**The pit
+The pit
+-50
+Watch your step.
+-50
+**Goldmine
+Goldmine
++650
+"You struck gold, run before any dwarves find you!
++650
