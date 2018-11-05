@@ -27,6 +27,12 @@ public class LanguageHandler {
     public void setLanguage(String language){
         languageFilePath = ".\\Language\\" + language + ".txt";
         fileManipulator.setFilePath(languageFilePath);
+        try {
+            messages = fileManipulator.readFileToArr();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 
