@@ -7,8 +7,16 @@
     <groupId>dk.dtu.02312.2018.32</groupId>
     <artifactId>CDIO2</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-    <repositories>
+<repositories>
         <repository>
             <id>Matador_GUI-repository</id>
             <url>https://github.com/diplomit-dtu/Matador_GUI/raw/repository</url>
@@ -26,5 +34,5 @@
         </dependency>
     </dependencies>
 
-    
+
 </project>

@@ -4,22 +4,28 @@ import java.io.*;
 import java.util.List;
 
 public class FileManipulator{
+    String filePath;
+    BufferedWriter writer;
+    BufferedReader reader;
 
 
-        public void writeOverFile(String fileName, String message) throws IOException {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+    public FileManipulator(String filePath) throws IOException {
+        this.filePath = filePath;
+        writer = new BufferedWriter(new FileWriter(filePath));
+        reader = new BufferedReader(new FileReader(filePath));
+    }
+
+        public void writeOverFile(String message) throws IOException {
             writer.write(message);
             writer.close();
         }
 
-        public void appendToFile(String fileName, String message) throws IOException {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+        public void appendToFile(String message) throws IOException {
             writer.write(message);
             writer.close();
         }
 
-        public void readFileToSout(String fileName) throws IOException {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        public void readFileToSout(String filePath) throws IOException {
             String currentLine = reader.readLine();
             while (currentLine != null){
                 System.out.println(currentLine);
@@ -28,9 +34,9 @@ public class FileManipulator{
             reader.close();
         }
 
-        public String[] readFileToArr(String fileName, int messageNum) throws IOException {
-            String[] messages = new String[messageNum];
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        public String[] readFileToArr() throws IOException {
+            String[] messages = new String[getMessageNum(filePath)];
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String currentLine = reader.readLine();
             int i=0;
             while (currentLine != null){
@@ -39,5 +45,20 @@ public class FileManipulator{
             }
             reader.close();
             return messages;
+        }
+
+        public int getMessageNum(String filePath) throws IOException {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String currentLine = reader.readLine();
+            int i=0;
+            while (currentLine != null){
+                i++;
+                currentLine = reader.readLine();
+            }
+            return i;
+        }
+
+        public void setFilePath(String filePath){
+            this.filePath = filePath;
         }
 }
