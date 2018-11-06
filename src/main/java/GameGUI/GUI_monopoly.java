@@ -7,11 +7,11 @@ import gui_main.GUI;
 
 import java.awt.*;
 
-public class GUI_monopoly {
+public class GUI_monopoly{
     private final int FIELDSIZE = 12, LANGUAGE_LENGTH = 58;
-    String[] ENG = new String[LANGUAGE_LENGTH];
-    String[] RUS = new String[LANGUAGE_LENGTH];
-    String[] DAN = new String[LANGUAGE_LENGTH];
+    private String[] ENG = new String[LANGUAGE_LENGTH];
+    private String[] RUS = new String[LANGUAGE_LENGTH];
+    private String[] DAN = new String[LANGUAGE_LENGTH];
     private int playerTotal;
 
     GUI_Field[] fields = new GUI_Field[FIELDSIZE];
