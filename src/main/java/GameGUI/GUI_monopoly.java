@@ -11,12 +11,12 @@ public class GUI_monopoly{
     private String[] ENG = new String[LANGUAGE_LENGTH];
     private String[] RUS = new String[LANGUAGE_LENGTH];
     private String[] DAN = new String[LANGUAGE_LENGTH];
-    private int playerTotal;
+    private int playerTotal = 2;
+    private int[] diceFaceValues = new int[2];
     String selectedLanguage = null;
 
     GUI_Field[] fields = new GUI_Field[FIELD_SIZE];
-    public GUI_monopoly(int numberOfPlayers){
-        playerTotal = numberOfPlayers;
+    public GUI_monopoly(){
         initGUI();
     }
 
@@ -115,6 +115,18 @@ public class GUI_monopoly{
                 Running = false;
             }
         }
+    }
+
+    public void displayNewDiceValue(GUI guiObj){
+        String btnRolled = guiObj.getUserButtonPressed("Roll dice", "Roll");
+            if(btnRolled.equals("Roll")){
+                guiObj.setDice(diceFaceValues[0], diceFaceValues[1]);
+
+            }
+    }
+    public void changeDiceValue(int x, int y){
+        diceFaceValues[0] = x;
+        diceFaceValues[1] = y;
     }
 
 }
