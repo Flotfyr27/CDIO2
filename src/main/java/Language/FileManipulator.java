@@ -3,41 +3,62 @@ package Language;
 import java.io.*;
 import java.util.List;
 
-public class FileManipulator{
+public class FileManipulator {
+    String filePath;
+    BufferedWriter writer;
+    BufferedReader reader;
 
 
-        public void writeOverFile(String fileName, String message) throws IOException {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-            writer.write(message);
-            writer.close();
+    public FileManipulator(String filePath) throws IOException {
+        this.filePath = filePath;
+        writer = new BufferedWriter(new FileWriter(filePath, true));
+        reader = new BufferedReader(new FileReader(filePath));
+    }
+
+    public void writeOverFile(String message) throws IOException {
+        writer.write(message);
+        writer.close();
+    }
+
+    public void appendToFile(String message) throws IOException {
+        writer.write(message);
+        writer.close();
+    }
+
+    public void readFileToSout(String filePath) throws IOException {
+        String currentLine = reader.readLine();
+        while (currentLine != null) {
+            System.out.println(currentLine);
+            currentLine = reader.readLine();
         }
+        reader.close();
+    }
 
-        public void appendToFile(String fileName, String message) throws IOException {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
-            writer.write(message);
-            writer.close();
+    public String[] readFileToArr() throws IOException {
+        String[] messages = new String[getMessageNum(filePath)];
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        String currentLine = reader.readLine();
+        int i = 0;
+        while (currentLine != null) {
+            messages[i++] = currentLine;
+            currentLine = reader.readLine();
         }
+        reader.close();
+        return messages;
+    }
 
-        public void readFileToSout(String fileName) throws IOException {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
-            String currentLine = reader.readLine();
-            while (currentLine != null){
-                System.out.println(currentLine);
-                currentLine = reader.readLine();
-            }
-            reader.close();
+    public int getMessageNum(String filePath) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        String currentLine = reader.readLine();
+        int i = 0;
+        while (currentLine != null) {
+            i++;
+            currentLine = reader.readLine();
         }
+        return i;
+    }
 
-        public String[] readFileToArr(String fileName, int messageNum) throws IOException {
-            String[] messages = new String[messageNum];
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
-            String currentLine = reader.readLine();
-            int i=0;
-            while (currentLine != null){
-                messages[i++] = currentLine;
-                currentLine = reader.readLine();
-            }
-            reader.close();
-            return messages;
-        }
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
 }
