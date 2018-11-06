@@ -4,17 +4,17 @@ import Language.LanguageHandler;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
-
 import java.awt.*;
 
 public class GUI_monopoly{
-    private final int FIELDSIZE = 12, LANGUAGE_LENGTH = 58;
+    private final int FIELD_SIZE = 12, LANGUAGE_LENGTH = 36;
     private String[] ENG = new String[LANGUAGE_LENGTH];
     private String[] RUS = new String[LANGUAGE_LENGTH];
     private String[] DAN = new String[LANGUAGE_LENGTH];
     private int playerTotal;
+    String selectedLanguage = null;
 
-    GUI_Field[] fields = new GUI_Field[FIELDSIZE];
+    GUI_Field[] fields = new GUI_Field[FIELD_SIZE];
     public GUI_monopoly(int numberOfPlayers){
         playerTotal = numberOfPlayers;
         initGUI();
@@ -25,6 +25,7 @@ public class GUI_monopoly{
             GUI_Street Start = new GUI_Street();
             Start.setTitle("START");
             Start.setDescription("You start here...");
+            Start.setSubText("");
             fields[0] = Start;
 
             //The Tower
@@ -63,22 +64,57 @@ public class GUI_monopoly{
 
 
         GUI gui = new GUI(fields, Color.WHITE);
+        selectedLanguage = gui.getUserButtonPressed("\t\tEN/DK/RU", "Dansk", "English", "Русский");
+        if(!selectedLanguage.equals(null)) {
+            changeGUILanguage(selectedLanguage);
+        }
     }
 
-
+    //Saves data from language .txt file to respective array
+    // Thereby changing the language in the process
     public void changeGUILanguage(String newLang){
         LanguageHandler LH = new LanguageHandler(newLang);
         LH.setLanguage(newLang);
-        if(newLang.equals("English") || newLang.equals("english")) {
+        //Change value to english
+        boolean Running = true;
+        if(newLang.equals("English")) {
             ENG = LH.getMessages();
-        }else if(newLang.equals("Danish") || newLang.equals("danish")){
+            fillFields(ENG);
+            //Change values to danish
+        }else if(newLang.equals("Dansk")){
             DAN = LH.getMessages();
-        }else if(newLang.equals("Russian") || newLang.equals("russian")){
+            fillFields(DAN);
+            //Change values to russian
+        }else if(newLang.equals("Русский")){
             RUS = LH.getMessages();
+            fillFields(RUS);
         }else {
             System.out.println("Language not supported");
         }
+    }
 
+//Method to actually change the values of the fields
+    private void fillFields(String[] LANGUAGE){
+        fields[0].setTitle(LANGUAGE[1]);
+        fields[0].setDescription(LANGUAGE[2]);
+        boolean Running = true;
+        int lineNumber = 4, fieldNumber = 1;
+        while(Running){
+            fields[fieldNumber].setTitle(LANGUAGE[lineNumber]);
+            fields[fieldNumber].setDescription(LANGUAGE[++lineNumber]);
+            if(lineNumber < LANGUAGE_LENGTH-1){
+                lineNumber++;
+                if(lineNumber < LANGUAGE_LENGTH){
+                    lineNumber++;
+                }
+            }
+            if(fieldNumber < FIELD_SIZE-1) {
+                fieldNumber++;
+            }
+            if(lineNumber == LANGUAGE_LENGTH-1){
+                Running = false;
+            }
+        }
     }
 
 }
