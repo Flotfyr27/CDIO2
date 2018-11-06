@@ -2,6 +2,7 @@ package GameGUI;
 
 import Language.LanguageHandler;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
 import java.awt.*;
@@ -64,10 +65,16 @@ public class GUI_monopoly{
 
 
         GUI gui = new GUI(fields, Color.WHITE);
+        GUI_Player gui_player1 = new GUI_Player("Player1", 1000);
+        GUI_Player gui_player2 = new GUI_Player("Player2", 1000);
+
+        gui.addPlayer(gui_player1);
+        gui.addPlayer(gui_player2);
         selectedLanguage = gui.getUserButtonPressed("\t\tEN/DK/RU", "Dansk", "English", "Русский");
         if(!selectedLanguage.equals(null)) {
             changeGUILanguage(selectedLanguage);
         }
+
     }
 
     //Saves data from language .txt file to respective array
@@ -127,6 +134,10 @@ public class GUI_monopoly{
     public void changeDiceValue(int x, int y){
         diceFaceValues[0] = x;
         diceFaceValues[1] = y;
+    }
+    //Changes value of a players balance
+    public void changePlayerBalance(GUI_Player  player, int amount){
+        player.setBalance(player.getBalance() + amount);
     }
 
 }

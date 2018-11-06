@@ -12,7 +12,7 @@ public class Game {
     public Game(int numberOfPlayers){
         this.numberOfPlayers = numberOfPlayers;
         players = CreatePlayers(numberOfPlayers);
-        GUI_monopoly gui = new GUI_monopoly(numberOfPlayers);
+        GUI_monopoly gui = new GUI_monopoly();
     }
 
     private Player[] CreatePlayers(int numberOfPlayers){
