@@ -1,5 +1,6 @@
 package GameGUI;
 
+import Language.LanguageHandler;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
@@ -8,21 +9,18 @@ import java.awt.*;
 
 public class GUI_monopoly {
     private final int FIELDSIZE = 12, LANGUAGE_LENGTH = 58;
-    private String selectedLanguage;
     String[] ENG = new String[LANGUAGE_LENGTH];
     String[] RUS = new String[LANGUAGE_LENGTH];
     String[] DAN = new String[LANGUAGE_LENGTH];
+    private int playerTotal;
 
-    public GUI_monopoly(int numberOfPlayers, String language){
-        selectedLanguage = language;
-        initGUI(numberOfPlayers, selectedLanguage);
+    GUI_Field[] fields = new GUI_Field[FIELDSIZE];
+    public GUI_monopoly(int numberOfPlayers){
+        playerTotal = numberOfPlayers;
+        initGUI();
     }
 
-    public void initGUI(int numberOfPlayers, String language){
-        GUI_Field[] fields = new GUI_Field[FIELDSIZE];
-
-        if(language.equals("English") || language.equals("english")) {
-
+    public void initGUI(){
             //Start
             GUI_Street Start = new GUI_Street();
             Start.setTitle("START");
@@ -63,9 +61,24 @@ public class GUI_monopoly {
             GUI_Street GoldMine = new GUI_Street("Goldmine", "+650", "You struck gold, run before any dwarves find you!", "+650", Color.lightGray, null);
             fields[11] = GoldMine;
 
-        }else if(language.equals("Russian") || language.equals("russian")){
 
-        }
         GUI gui = new GUI(fields, Color.WHITE);
     }
+
+
+    public void changeGUILanguage(String newLang){
+        LanguageHandler LH = new LanguageHandler(newLang);
+        LH.setLanguage(newLang);
+        if(newLang.equals("English") || newLang.equals("english")) {
+            ENG = LH.getMessages();
+        }else if(newLang.equals("Danish") || newLang.equals("danish")){
+            DAN = LH.getMessages();
+        }else if(newLang.equals("Russian") || newLang.equals("russian")){
+            RUS = LH.getMessages();
+        }else {
+            System.out.println("Language not supported");
+        }
+
+    }
+
 }

@@ -9,7 +9,7 @@ public class LanguageHandler {
     private String languageFilePath;
     private String[] messages;
 
-    LanguageHandler(String language) {
+    public LanguageHandler(String language) {
         languageFilePath = ".\\Language\\" + language + ".txt";
         try {
             fileManipulator = new FileManipulator(languageFilePath);
