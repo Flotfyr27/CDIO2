@@ -1,3 +1,5 @@
+import GameGUI.GUI_monopoly;
+
 /**
  * This is the main class of the game. this class controls which player can act, and when the game is running.
  */
@@ -10,7 +12,9 @@ public class Game {
     public Game(int numberOfPlayers){
         this.numberOfPlayers = numberOfPlayers;
         players = CreatePlayers(numberOfPlayers);
+        GUI_monopoly gui = new GUI_monopoly(numberOfPlayers);
     }
+
     private Player[] CreatePlayers(int numberOfPlayers){
         Player[] players = new Player[numberOfPlayers];
 
@@ -20,8 +24,12 @@ public class Game {
         return players;
     }
 
+    //The game loop. is active as long as no player has won
     public void gameLoop(){
 
+        do{
+
+        } while (!CheckForWin(players));
     }
 
    //A function which checks all players for having won
