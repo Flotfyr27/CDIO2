@@ -1,9 +1,6 @@
 public class Player {
 
     private Roll roll = new Roll();
-    //It's the same for all the players, that's why we use static.
-    private static int numberOfPlayers = 0;
-    public String NAME;
     Account account = new Account();
 
 

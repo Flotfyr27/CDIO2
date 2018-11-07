@@ -13,6 +13,7 @@ public class Game {
         this.numberOfPlayers = numberOfPlayers;
         players = CreatePlayers(numberOfPlayers);
         currentPlayerIndex = 0;
+        startGame();
         GUI_monopoly gui = new GUI_monopoly();
     }
 
@@ -25,12 +26,23 @@ public class Game {
         return players;
     }
 
+    //a function to start the game loop
+    public void startGame(){
+        gameLoop();
+    }
+
+
     //The game loop. is active as long as no player has won
-    public void gameLoop(){
+    private void gameLoop(){
 
         do{
+            players[currentPlayerIndex].main();
 
+            if (players[currentPlayerIndex].CheckWin()) {
+                System.out.println("Player " + (currentPlayerIndex + 1) + " won!");
+            }
 
+            nextPlayer();
         } while (!CheckForWin(players));
     }
 
