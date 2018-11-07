@@ -18,8 +18,8 @@ public class GUI_monopoly{
     private int[] diceFaceValues = new int[2];
     String selectedLanguage = null;
     GUI gui;
-    GUI_Player gui_player1, gui_player2;
-    GUI_Car car_player1, car_player2;
+    private GUI_Player gui_player1, gui_player2;
+    private GUI_Car car_player1, car_player2;
 
     GUI_Field[] fields = new GUI_Field[FIELD_SIZE];
     public GUI_monopoly(){
