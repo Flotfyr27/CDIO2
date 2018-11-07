@@ -4,6 +4,7 @@ import Language.LanguageHandler;
 import com.sun.java.accessibility.util.GUIInitializedListener;
 import gui_codebehind.GUI_BoardController;
 import gui_codebehind.GUI_Center;
+import gui_fields.GUI_Board;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
@@ -19,10 +20,12 @@ public class GUI_monopoly{
     private String[] DAN = new String[LANGUAGE_LENGTH];
     private int[] diceFaceValues = new int[2];
     String selectedLanguage = null;
+    GUI gui;
 
     GUI_Field[] fields = new GUI_Field[FIELD_SIZE];
     public GUI_monopoly(){
         initGUI();
+
     }
 
     public void initGUI(){
@@ -32,8 +35,6 @@ public class GUI_monopoly{
             Start.setDescription("You start here...");
             Start.setSubText("");
             fields[0] = Start;
-
-
             //The Tower
             GUI_Street Tower = new GUI_Street("Tower", "+250", "You find a treasure of gold and silver!", "+250", Color.lightGray, null);
             fields[1] = Tower;
@@ -69,7 +70,7 @@ public class GUI_monopoly{
             fields[11] = GoldMine;
 
 
-        GUI gui = new GUI(fields, Color.WHITE);
+        gui = new GUI(fields, Color.WHITE);
         GUI_Player gui_player1 = new GUI_Player("Player1", 1000);
         GUI_Player gui_player2 = new GUI_Player("Player2", 1000);
 
@@ -81,8 +82,7 @@ public class GUI_monopoly{
         }
     }
 
-    public void checkForRoll(){
-        GUI gui = new GUI(fields, Color.WHITE);
+    public void checkForRoll() {
         gui.getUserButtonPressed("Hello", "hey");
     }
 

@@ -1,6 +1,6 @@
 public class Roll {
     private int value1;
-    public int value2;
+    private int value2;
     Die die = new Die();
 
     public Roll(){

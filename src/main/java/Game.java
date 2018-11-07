@@ -37,6 +37,7 @@ public class Game {
 
         do{
             gui.checkForRoll();
+
             players[currentPlayerIndex].main();
             System.out.println("player" + (currentPlayerIndex+1));
             if (players[currentPlayerIndex].CheckWin()) {
