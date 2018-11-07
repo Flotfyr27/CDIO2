@@ -36,6 +36,7 @@ public class Game {
         GUI_monopoly gui = new GUI_monopoly();
 
         do{
+            gui.checkForRoll();
             players[currentPlayerIndex].main();
             System.out.println("player" + (currentPlayerIndex+1));
             if (players[currentPlayerIndex].CheckWin()) {

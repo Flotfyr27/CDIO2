@@ -1,10 +1,15 @@
 package GameGUI;
 
 import Language.LanguageHandler;
+import com.sun.java.accessibility.util.GUIInitializedListener;
+import gui_codebehind.GUI_BoardController;
+import gui_codebehind.GUI_Center;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
+
+import javax.swing.*;
 import java.awt.*;
 
 public class GUI_monopoly{
@@ -12,7 +17,6 @@ public class GUI_monopoly{
     private String[] ENG = new String[LANGUAGE_LENGTH];
     private String[] RUS = new String[LANGUAGE_LENGTH];
     private String[] DAN = new String[LANGUAGE_LENGTH];
-    private int playerTotal = 2;
     private int[] diceFaceValues = new int[2];
     String selectedLanguage = null;
 
@@ -28,6 +32,7 @@ public class GUI_monopoly{
             Start.setDescription("You start here...");
             Start.setSubText("");
             fields[0] = Start;
+
 
             //The Tower
             GUI_Street Tower = new GUI_Street("Tower", "+250", "You find a treasure of gold and silver!", "+250", Color.lightGray, null);
@@ -74,7 +79,11 @@ public class GUI_monopoly{
         if(!selectedLanguage.equals(null)) {
             changeGUILanguage(selectedLanguage);
         }
+    }
 
+    public void checkForRoll(){
+        GUI gui = new GUI(fields, Color.WHITE);
+        gui.getUserButtonPressed("Hello", "hey");
     }
 
     //Saves data from language .txt file to respective array
@@ -83,7 +92,6 @@ public class GUI_monopoly{
         LanguageHandler LH = new LanguageHandler(newLang);
         LH.setLanguage(newLang);
         //Change value to english
-        boolean Running = true;
         if(newLang.equals("English")) {
             ENG = LH.getMessages();
             fillFields(ENG);
