@@ -1,3 +1,36 @@
-Hej du der!
-Hvad can jeg gøre for dig?
-Jeg har ventet dig...
+**Start
+START
+Du starter her...
+**Tårn
+Tårn
+Du kan finde en kiste med guld op sølv!
+**Krater
+Krater
+Du falder ind i et krater og skal betale for reperationer.
+**palads
+Palads portene
+Du besøger palads portere
+**Kold ørken
+Kold ørken
+Du går overraskende ind i en kold ørken. Du fodre penvvinerne.
+**Murede by
+Murede by
+Du føler dig sikker bag byens mure
+**Kloster
+Kloster
+Indre fred vil finde din sjæl
+**Den mørke grotte
+Den mørke grotte
+Det er virkelig mørkt herinde, måske skal du bruge en fakkel?
+**Hytter på bjerget
+Hytter på bjerget
+Her er rart, hvem ejer det?
+**Varvæg
+Varvæggen (varulve-væggen)
+Det er min vidundervæg +1 et ekstra kast
+**Hullet
+Hullet
+Se hvor du går!
+**Guldmine
+Guldmine
+Du fandt guld, løb før de sure dværge finder dig!
