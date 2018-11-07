@@ -1,5 +1,3 @@
-import java.Die;
-
 public class Roll {
     private int value1;
     public int value2;
@@ -24,4 +22,5 @@ public class Roll {
 
 
 
-    }}
+    }
+}
