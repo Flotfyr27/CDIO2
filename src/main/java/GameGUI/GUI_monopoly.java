@@ -83,6 +83,7 @@ public class GUI_monopoly{
         }
     }
 
+    //Creates roll button
     public void checkForRoll() {
         gui.getUserButtonPressed("", "Roll");
 
@@ -149,7 +150,7 @@ public class GUI_monopoly{
     public void changePlayerBalance(GUI_Player  player, int amount){
         player.setBalance(player.getBalance() + amount);
     }
-
+//returns a player object based on given playernumber
     public GUI_Player getPlayer(int playerNumber){
         if(playerNumber == 2) {
             return gui_player2;
@@ -157,6 +158,17 @@ public class GUI_monopoly{
             return gui_player1;
         }else{
             return gui_player1;
+        }
+    }
+
+    //Moves player car to desired spot
+    public void movePlayer(int totalDiceRoll, GUI_Player player){
+        fields[totalDiceRoll-1].setCar(player, true);
+    }
+    //Clears cars
+    public void clearPlayerCars(){
+        for(int i = 0; i < fields.length; i++){
+            fields[i].removeAllCars();
         }
     }
 
