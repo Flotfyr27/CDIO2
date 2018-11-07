@@ -37,9 +37,17 @@ public class Game {
 
         do{
             gui.checkForRoll();
+            gui.clearPlayerCars();
 
             players[currentPlayerIndex].main();
-            System.out.println("player" + (currentPlayerIndex+1));
+
+            gui.movePlayer(players[currentPlayerIndex].getPlayerRoll(),
+                    gui.getPlayer(currentPlayerIndex+1));
+
+            gui.setPlayerBalance(gui.getPlayer(currentPlayerIndex+1),
+                    players[currentPlayerIndex].account.getScore() );
+
+
             if (players[currentPlayerIndex].CheckWin()) {
                 System.out.println("Player " + (currentPlayerIndex + 1) + " won!");
             }

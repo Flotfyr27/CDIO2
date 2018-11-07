@@ -141,8 +141,8 @@ public class GUI_monopoly{
         gui.setDice(x,y);
     }
     //Changes value of a players balance
-    public void changePlayerBalance(GUI_Player  player, int amount){
-        player.setBalance(player.getBalance() + amount);
+    public void setPlayerBalance(GUI_Player  player, int balance){
+        player.setBalance(balance);
     }
 //returns a player object based on given playernumber
     public GUI_Player getPlayer(int playerNumber){
