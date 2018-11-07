@@ -4,10 +4,7 @@ import Language.LanguageHandler;
 import com.sun.java.accessibility.util.GUIInitializedListener;
 import gui_codebehind.GUI_BoardController;
 import gui_codebehind.GUI_Center;
-import gui_fields.GUI_Board;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Player;
-import gui_fields.GUI_Street;
+import gui_fields.*;
 import gui_main.GUI;
 
 import javax.swing.*;
@@ -21,6 +18,8 @@ public class GUI_monopoly{
     private int[] diceFaceValues = new int[2];
     String selectedLanguage = null;
     GUI gui;
+    GUI_Player gui_player1, gui_player2;
+    GUI_Car car_player1, car_player2;
 
     GUI_Field[] fields = new GUI_Field[FIELD_SIZE];
     public GUI_monopoly(){
@@ -71,8 +70,9 @@ public class GUI_monopoly{
 
 
         gui = new GUI(fields, Color.WHITE);
-        GUI_Player gui_player1 = new GUI_Player("Player1", 1000);
-        GUI_Player gui_player2 = new GUI_Player("Player2", 1000);
+        car_player1 = new GUI_Car(Color.red, Color.black, GUI_Car.Type.RACECAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT);
+        gui_player1 = new GUI_Player("Player1", 1000, car_player1);
+        gui_player2 = new GUI_Player("Player2", 1000);
 
         gui.addPlayer(gui_player1);
         gui.addPlayer(gui_player2);
@@ -134,7 +134,7 @@ public class GUI_monopoly{
     }
 
     public void displayNewDiceValue(GUI guiObj){
-        String btnRolled = guiObj.getUserButtonPressed("Roll dice", "Roll");
+        String btnRolled = guiObj.getUserButtonPressed("Press me!", "Roll");
             if(btnRolled.equals("Roll")){
                 guiObj.setDice(diceFaceValues[0], diceFaceValues[1]);
 
@@ -147,6 +147,16 @@ public class GUI_monopoly{
     //Changes value of a players balance
     public void changePlayerBalance(GUI_Player  player, int amount){
         player.setBalance(player.getBalance() + amount);
+    }
+
+    public GUI_Player getPlayer(int playerNumber){
+        if(playerNumber == 2) {
+            return gui_player2;
+        }else if(playerNumber == 1){
+            return gui_player1;
+        }else{
+            return gui_player1;
+        }
     }
 
 }
