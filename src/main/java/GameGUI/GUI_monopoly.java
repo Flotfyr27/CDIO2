@@ -71,12 +71,13 @@ public class GUI_monopoly{
 
         gui = new GUI(fields, Color.WHITE);
         car_player1 = new GUI_Car(Color.red, Color.black, GUI_Car.Type.RACECAR, GUI_Car.Pattern.HORIZONTAL_GRADIANT);
+        car_player2 = new GUI_Car(Color.red, Color.white, GUI_Car.Type.TRACTOR, GUI_Car.Pattern.DIAGONAL_DUAL_COLOR);
         gui_player1 = new GUI_Player("Player1", 1000, car_player1);
-        gui_player2 = new GUI_Player("Player2", 1000);
+        gui_player2 = new GUI_Player("Player2", 1000, car_player2);
 
         gui.addPlayer(gui_player1);
         gui.addPlayer(gui_player2);
-        selectedLanguage = gui.getUserButtonPressed("\t\tEN/DK/RU", "Dansk", "English", "Русский");
+        selectedLanguage = gui.getUserButtonPressed("\t\tSelect a language:", "Dansk", "English", "Русский");
         if(!selectedLanguage.equals(null)) {
             changeGUILanguage(selectedLanguage);
         }
