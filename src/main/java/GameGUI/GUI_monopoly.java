@@ -135,16 +135,10 @@ public class GUI_monopoly{
         }
     }
 
-    public void displayNewDiceValue(GUI guiObj){
-        String btnRolled = guiObj.getUserButtonPressed("Press me!", "Roll");
-            if(btnRolled.equals("Roll")){
-                guiObj.setDice(diceFaceValues[0], diceFaceValues[1]);
 
-            }
-    }
     public void changeDiceValue(int x, int y){
-        diceFaceValues[0] = x;
-        diceFaceValues[1] = y;
+        checkForRoll();
+        gui.setDice(x,y);
     }
     //Changes value of a players balance
     public void changePlayerBalance(GUI_Player  player, int amount){
