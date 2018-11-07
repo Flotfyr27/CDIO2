@@ -10,6 +10,7 @@ public class Player {
 // using switch statement to add the score to player
 
     public void main() {
+        roll.RollDice();
         int result = roll.GetAddedScore();
         String besked;
         switch (result) {
@@ -51,6 +52,7 @@ public class Player {
             case 10:
                 String besked10 = "The Werewall (werewolf-wall -80) bonustur";
                 account.changeScore(-80);
+                main();
                 break;
             case 11:
                 String besked11 = "The pit -50";
