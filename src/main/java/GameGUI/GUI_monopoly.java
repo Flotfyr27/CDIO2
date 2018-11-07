@@ -83,7 +83,8 @@ public class GUI_monopoly{
     }
 
     public void checkForRoll() {
-        gui.getUserButtonPressed("Hello", "hey");
+        gui.getUserButtonPressed("", "Roll");
+
     }
 
     //Saves data from language .txt file to respective array
