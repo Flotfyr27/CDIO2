@@ -35,7 +35,7 @@ public class Game {
    //A function which checks all players for having won
     public boolean CheckForWin(Player[] players){
         for (Player player : players) {
-            if (player.GetWon())
+            if (player.CheckWin())
                 return true;
         }
         return false;
