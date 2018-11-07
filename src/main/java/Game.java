@@ -14,7 +14,6 @@ public class Game {
         players = CreatePlayers(numberOfPlayers);
         currentPlayerIndex = 0;
         startGame();
-        GUI_monopoly gui = new GUI_monopoly();
     }
 
     private Player[] CreatePlayers(int numberOfPlayers){
@@ -34,10 +33,11 @@ public class Game {
 
     //The game loop. is active as long as no player has won
     private void gameLoop(){
+        GUI_monopoly gui = new GUI_monopoly();
 
         do{
             players[currentPlayerIndex].main();
-
+            System.out.println("player" + (currentPlayerIndex+1));
             if (players[currentPlayerIndex].CheckWin()) {
                 System.out.println("Player " + (currentPlayerIndex + 1) + " won!");
             }

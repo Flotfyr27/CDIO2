@@ -49,6 +49,7 @@ public class Player {
             case 10:
                 String besked10 = "The Werewall (werewolf-wall -80) bonustur";
                 account.changeScore(-80);
+                System.out.println("player got extra roll \n score: " + account.getScore());
                 main();
                 break;
             case 11:
