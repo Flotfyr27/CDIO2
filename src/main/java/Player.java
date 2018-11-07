@@ -1,4 +1,4 @@
-public class Player{
+public class Player {
 
     private Roll roll = new Roll();
     //It's the same for all the players, that's why we use static.
@@ -6,89 +6,71 @@ public class Player{
     public String NAME;
     Account account = new Account();
 
-    private int score;
-    private boolean won;
-    private Roll lastRoll;
-
-    private String rollLog;
 
 // using switch statement to add the score to player
 
     public void main() {
-        int roll = lastRoll.GetAddedScore();
+        int result = roll.GetAddedScore();
         String besked;
-        switch (roll) {
-            case 1: String besked1= "invalid number";
+        switch (result) {
+            case 1:
+                String besked1 = "invalid number";
                 break;
-            case 2: String besked2= "Tower +250";
-                 account.changeScore(250);
+            case 2:
+                String besked2 = "Tower +250";
+                account.changeScore(250);
                 break;
-            case 3: String besked3 = "Crater -100";
+            case 3:
+                String besked3 = "Crater -100";
                 account.changeScore(-100);
                 break;
-            case 4: String besked4 = "Palace gates +100";
+            case 4:
+                String besked4 = "Palace gates +100";
                 account.changeScore(100);
                 break;
-            case 5: String besked5= "Cold Desert -20";
+            case 5:
+                String besked5 = "Cold Desert -20";
                 account.changeScore(-20);
                 break;
-            case 6: String besked6= "Walled city +180";
+            case 6:
+                String besked6 = "Walled city +180";
                 account.changeScore(180);
                 break;
-            case 7: String besked7= "Monastry 0";
+            case 7:
+                String besked7 = "Monastry 0";
                 account.changeScore(0);
                 break;
-            case 8: String besked8= "Black cave -70";
+            case 8:
+                String besked8 = "Black cave -70";
                 account.changeScore(-70);
                 break;
-            case 9: String besked9= "Huts in the mountain +60";
+            case 9:
+                String besked9 = "Huts in the mountain +60";
                 account.changeScore(60);
                 break;
-            case 10: String besked10= "The Werewall (werewolf-wall -80) bonustur";
+            case 10:
+                String besked10 = "The Werewall (werewolf-wall -80) bonustur";
                 account.changeScore(-80);
                 break;
-            case 11: String besked11= "The pit -50";
+            case 11:
+                String besked11 = "The pit -50";
                 account.changeScore(-50);
                 break;
-            case 12: String besked12= "Goldmine +650";
+            case 12:
+                String besked12 = "Goldmine +650";
                 account.changeScore(650);
                 break;
         }
     }
 
-
-//player start score set to 1000
-    public Player(){
-        won = false;
-        score = 1000;
-        NAME = "Player " + ++numberOfPlayers;
-        rollLog = "";
-        lastRoll = roll;
-    }
-
-
-    public boolean GetWon(){
-        return won;
-    }
-//Checking if a player was won or not.
-    public boolean CheckWin(){
-        if (score >= 3000)
+    //Checking if a player was won or not.
+    public boolean CheckWin() {
+        if (account.getScore() >= 3000)
             return true;
         else
             return false;
     }
 
-    public String getRollLog() {
-        return rollLog;
-    }
-
-    public void setRollLog(String rollLog) {
-        this.rollLog = rollLog;
-    }
-
-    public int getScore() {
-        return score;
-    }
 }
 
 
