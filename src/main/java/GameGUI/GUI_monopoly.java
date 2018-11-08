@@ -10,6 +10,10 @@ import gui_main.GUI;
 import javax.swing.*;
 import java.awt.*;
 
+
+/*
+This class is responsible for utilizing the GUI supplied by the course.
+ */
 public class GUI_monopoly{
     private final int FIELD_SIZE = 12, LANGUAGE_LENGTH = 36;
     private String[] ENG = new String[LANGUAGE_LENGTH];
