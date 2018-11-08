@@ -141,7 +141,6 @@ public class GUI_monopoly{
 
 
     public void changeDiceValue(int x, int y){
-        checkForRoll();
         gui.setDice(x,y);
     }
     //Changes value of a players balance
