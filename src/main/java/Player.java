@@ -58,6 +58,8 @@ public class Player {
         else
             return false;
     }
+    public int getDie_one(){return roll.getValue1();}
+    public int getDie_two(){return roll.getValue2();}
 
     public int getPlayerRoll(){
         return roll.GetAddedScore();
