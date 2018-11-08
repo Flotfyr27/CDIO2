@@ -11,6 +11,9 @@ public class Roll {
         value1 = die.RollDie();
         value2 = die.RollDie();
     }
+    public int getValue1(){return value1;}
+
+    public int getValue2(){return value2;}
 
     public int GetAddedScore(){
         return value1 + value2;
