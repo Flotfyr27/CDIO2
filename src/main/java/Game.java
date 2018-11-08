@@ -44,6 +44,8 @@ public class Game {
             gui.movePlayer(players[currentPlayerIndex].getPlayerRoll(),
                     gui.getPlayer(currentPlayerIndex+1));
 
+            gui.changeDiceValue(players[currentPlayerIndex].getDie_one(), players[currentPlayerIndex].getDie_two());
+
             gui.setPlayerBalance(gui.getPlayer(currentPlayerIndex+1),
                     players[currentPlayerIndex].account.getScore() );
 
