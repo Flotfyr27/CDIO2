@@ -12,7 +12,7 @@ class LanguageHandlerTest {
     void getMessages() {
         LanguageHandler languageHandler = new LanguageHandler("English");
         assertTrue(languageHandler.getMessages().getClass() == String[].class);
-        assertTrue(languageHandler.getMessages()[0].equalsIgnoreCase("Hello there!"));
+        assertTrue(languageHandler.getMessages()[0].equalsIgnoreCase("**Start"));
 
     }
 
@@ -20,10 +20,10 @@ class LanguageHandlerTest {
     void setLanguage() {
         LanguageHandler languageHandler = new LanguageHandler("English");
         assertTrue(languageHandler.getMessages().getClass() == String[].class);
-        assertTrue(languageHandler.getMessages()[0].equalsIgnoreCase("Hello there!"));
+        assertTrue(languageHandler.getMessages()[2].equalsIgnoreCase("You start here..."));
 
-        languageHandler.setLanguage("Danish");
+        languageHandler.setLanguage("Dansk");
         assertTrue(languageHandler.getMessages().getClass() == String[].class);
-        assertTrue(languageHandler.getMessages()[0].equalsIgnoreCase("Hej du der!"));
+        assertTrue(languageHandler.getMessages()[2].equalsIgnoreCase("Du starter her..."));
     }
 }
